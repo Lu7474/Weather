@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прогноз погоды</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form input {
+            padding: 10px;
+            width: 80%;
+            max-width: 300px;
+            margin-bottom: 10px;
+        }
+
+        form button {
+            padding: 10px;
+            width: 80%;
+            max-width: 300px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+
+        .weather-info {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .weather-info h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .weather-info p {
+            font-size: 24px;
+        }
+
+        .weather-info img {
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Погода в вашем городе</h1>
+
+        <form method="POST">
+            <input type="text" name="city" placeholder="Введите название города" required>
+            <button type="submit">Показать погоду</button>
+        </form>
+
+        <div class="weather-info">
+            <h2>{{ weather_data.city }}</h2>
+            <p>{{ weather_data.temperature }} °C</p>
+            <p>{{ weather_data.description }}</p>
+            <img src="http://openweathermap.org/img/wn/{{ weather_data.icon }}.png" alt="weather icon">
+        </div>
+    </div>
+</body>
+
+</html>
